@@ -159,6 +159,23 @@ body {
 	color: var(--ghost-color);
 }
 
+.alert {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px auto;
+	width: 80%;
+}
+
+.alert-success {
+	background-color: var(--good-color);
+	color: var(--white);
+}
+
+.alert-error {
+	background-color: var(--danger-color);
+	color: var(--white);
+}
+
 @media only screen and (max-width: 1024px) {
 	#app-shell {
 		flex-direction: column-reverse;

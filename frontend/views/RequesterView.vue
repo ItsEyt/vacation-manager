@@ -274,21 +274,4 @@ form {
 	padding: 10px;
 	border-top: 1px solid #ccc;
 }
-
-.alert {
-	padding: 10px;
-	border-radius: 5px;
-	margin: 10px auto;
-	width: 80%;
-}
-
-.alert-success {
-	background-color: var(--good-color);
-	color: var(--white);
-}
-
-.alert-error {
-	background-color: var(--danger-color);
-	color: var(--white);
-}
 </style>

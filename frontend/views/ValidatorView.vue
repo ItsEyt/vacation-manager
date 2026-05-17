@@ -16,7 +16,7 @@
 
 		<!-- Filters -->
 		<div class="filter-bar">
-			<span class="filter-label">Filter by status</span>
+			<span>Filter by status</span>
 			<div class="filter-tabs">
 				<button
 					v-for="f in filters"
