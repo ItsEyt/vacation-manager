@@ -138,7 +138,7 @@ const reviewing = ref(false);
 const isMobile = ref(false);
 
 function checkScreen() {
-  isMobile.value = window.innerWidth < 1024;
+	isMobile.value = window.innerWidth < 1024;
 }
 
 const statuses = [
@@ -163,7 +163,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-    window.removeEventListener("resize", checkScreen);
+	window.removeEventListener("resize", checkScreen);
 });
 
 async function applyFilter(status) {
@@ -249,6 +249,8 @@ function calcDays(s, e) {
 .requests-table {
 	width: 100%;
 	border-collapse: collapse;
+    max-height: 60dvh;
+    overflow: auto scroll;
 
 	&& td {
 		text-align: center;
@@ -268,6 +270,10 @@ function calcDays(s, e) {
 
 .table-header {
 	font-weight: bold;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
 }
 
 .table-row {
@@ -391,10 +397,10 @@ button {
 
 	.table-row,
 	.table-header {
-        grid-template-columns:  0.1fr 0.3fr 1fr 0.3fr 1fr 0.5fr 1fr;
-    }
-    
-    .table-row {
+		grid-template-columns: 0.1fr 0.3fr 1fr 0.3fr 1fr 0.5fr 1fr;
+	}
+
+	.table-row {
 		height: auto;
 	}
 }

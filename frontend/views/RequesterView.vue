@@ -172,6 +172,9 @@ section {
 	width: 90%;
 	padding: 10px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	max-height: 48dvh;
+	overflow: auto scroll;
+	padding-top: 0;
 }
 
 form {
@@ -252,6 +255,15 @@ form {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	position: sticky;
+	top: 0;
+	background: #fff;
+	z-index: 1;
+    border-bottom: 1px solid var(--text-color);
+
+	&& h2 {
+		margin: 5px;
+	}
 }
 
 .request-item {
