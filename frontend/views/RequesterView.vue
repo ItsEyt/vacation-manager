@@ -2,8 +2,8 @@
 	<div class="requester-layout">
 		<section class="form-section">
 			<div class="card">
-				<h2 class="card-title">Request Time Off</h2>
-				<p class="section-sub">Fill in the details below to submit a new vacation request</p>
+				<h2>Request Time Off</h2>
+				<p>Fill in the details below to submit a new vacation request</p>
 
 				<div v-if="successMsg" class="alert alert-success">{{ successMsg }}</div>
 				<div v-if="store.error" class="alert alert-error">{{ store.error }}</div>
@@ -12,20 +12,12 @@
 					<div class="form-row">
 						<div class="form-group">
 							<label class="form-label">Start Date *</label>
-							<input
-								v-model="form.start_date"
-								type="date"
-								:class="{ 'input-error': errors.start_date }"
-								:min="today" />
+							<input v-model="form.start_date" type="date" :class="{ 'input-error': errors.start_date }" :min="today" />
 							<span class="field-error">{{ errors.start_date }}</span>
 						</div>
 						<div class="form-group">
 							<label class="form-label">End Date *</label>
-							<input
-								v-model="form.end_date"
-								type="date"
-								:class="{ 'input-error': errors.end_date }"
-								:min="form.start_date || today" />
+							<input v-model="form.end_date" type="date" :class="{ 'input-error': errors.end_date }" :min="form.start_date || today" />
 							<span class="field-error">{{ errors.end_date }}</span>
 						</div>
 					</div>
@@ -53,8 +45,8 @@
 
 		<section v-if="!userStore.isValidator">
 			<div class="list-header">
-				<h2 class="card-title">My Requests</h2>
-				<span class="count-badge">{{ store.myRequests.length }}</span>
+				<h2>My Requests</h2>
+				<span>{{ store.myRequests.length }}</span>
 			</div>
 
 			<div v-if="store.loading && !store.myRequests.length">Loading…</div>
@@ -63,17 +55,15 @@
 				<p>No requests yet. Submit your first one!</p>
 			</div>
 
-			<div v-else class="requests-list">
+			<div v-else>
 				<div v-for="req in store.myRequests" :key="req.id" class="request-item">
 					<span :class="['badge', `badge-${req.status.toLowerCase()}`]" :title="req.status"></span>
-					<div class="request-top">
-						<div>
-							<span class="request-dates"> {{ formatDate(req.start_date) }} → {{ formatDate(req.end_date) }} </span>
-							<span class="request-days">({{ calcDays(req.start_date, req.end_date) }} days)</span>
-						</div>
+					<div>
+						<span class="request-dates"> {{ formatDate(req.start_date) }} → {{ formatDate(req.end_date) }} </span>
+						<span class="request-days">({{ calcDays(req.start_date, req.end_date) }} days)</span>
 					</div>
-					<p v-if="req.reason" class="request-reason">"{{ req.reason }}"</p>
-					<div  class="request-comments"><strong v-if="req.comments">Manager comment:</strong> {{ req.comments }}</div>
+					<p class="request-reason">{{ req.reason }}</p>
+					<div class="request-comments"><strong v-if="req.comments">Manager comment:</strong> {{ req.comments }}</div>
 					<div class="request-date">Submitted {{ formatDateTime(req.created_at) }}</div>
 				</div>
 			</div>
@@ -159,12 +149,12 @@ function calcDays(s, e) {
 }
 
 .hint {
-    font-size: 0.9em;
-    color: #666;
+	font-size: 0.9em;
+	color: #666;
 }
 
 .warn {
-    color: var(--danger-color);
+	color: var(--danger-color);
 }
 
 .requester-layout {
@@ -227,10 +217,10 @@ form {
 }
 
 .field-error {
-    height: 1rem;
-    color: var(--danger-color);
-    font-size: 0.8em;
-    margin-top: 4px;
+	height: 1rem;
+	color: var(--danger-color);
+	font-size: 0.8em;
+	margin-top: 4px;
 }
 
 .form-footer {
@@ -271,5 +261,22 @@ form {
 	gap: 10px;
 	padding: 10px;
 	border-top: 1px solid #ccc;
+}
+
+.alert {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px auto;
+	width: 80%;
+}
+
+.alert-success {
+	background-color: var(--good-color);
+	color: var(--white);
+}
+
+.alert-error {
+	background-color: var(--danger-color);
+	color: var(--white);
 }
 </style>
